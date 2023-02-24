@@ -1,14 +1,9 @@
-import React from 'react'
-import Navbar from '../Shared/Navbar';
-import Footer from '../Shared/Footer';
-import Sidebar from '../Shared/Sidebar';
+import React from 'react';
 
 function Home() {
   return (
     <div>
-      <Navbar />
-      <Sidebar />
-      <Footer />
+      <h1>This is Home page</h1>
     </div>
   )
 }

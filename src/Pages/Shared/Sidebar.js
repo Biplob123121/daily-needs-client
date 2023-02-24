@@ -11,9 +11,12 @@ import { BiShoppingBag } from 'react-icons/bi';
 function Sidebar() {
 
     const [toggle, setToggle] = useState(false);
+    const price = 10;
+    
 
     const barItems = [
         {name: 'Category', link: '/', icon: category_logo},
+        {name: 'All', link: '/all-products', icon: category_logo},
         {name: 'Food', link: '/food', icon: food_logo},
         {name: 'Fashion', link: '/fashion', icon: fashion_logo},
         {name: 'Cosmetics', link: '/cosmetics', icon: cosmetics_logo},
@@ -21,6 +24,7 @@ function Sidebar() {
     ]
 
   return (
+    
     <div className='flex z-0'>
         <div className={`${toggle ? 'w-[72px]': 'w-52'} min-h-screen bg-gray-200 duration-700 text-gray-700 font-semibold px-6 relative`}>
             <div onClick={()=>setToggle(!toggle)} className=" absolute cursor-pointer top-2 right-2 font-bold">
@@ -31,13 +35,12 @@ function Sidebar() {
             <div className='mt-12 mb-28'>
                 {
                     barItems.map((item, i) =><NavLink to={item.link} key={i} className='flex py-2 rounded-lg hover:bg-gray-400'>
-                        <img src={item.icon} alt="" />
-                        {/* <div>{React.createElement(item.icon, {size: '26'})}</div> */}
+                        <img src={item.icon} alt="logo" />
                         <h3 className='ml-2 overflow-hidden'>{item.name}</h3>
                     </NavLink>)
                 }
             </div>
-            <div className='shadow-xl w-[64px] absolute left-2'>
+            <div className='shadow-2xl w-[64px] absolute left-2'>
                 <div className='bg-gray-500 text-yellow-500 text-center'>
                     <h3 className='ml-5'><BiShoppingBag  size={26}/></h3>
                     <p>00 Item</p>
@@ -46,7 +49,7 @@ function Sidebar() {
             </div>
         </div>
         <div className='px-3'>
-            <Outlet />
+            <Outlet price={price}/>
         </div>
     </div>
   )
