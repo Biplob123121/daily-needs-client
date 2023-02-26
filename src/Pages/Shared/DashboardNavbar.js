@@ -4,7 +4,7 @@ import { BiMenu } from 'react-icons/bi';
 import { IoMdClose } from 'react-icons/io';
 import { AuthContext } from '../../Context/AuthProvider';
 
-function Navbar() {
+function DashboardNavbar() {
 
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -26,7 +26,10 @@ function Navbar() {
     return (
         <nav className='py-3 px-6 bg-gray-700 text-gray-100 sticky top-0 z-10'>
             <div className='flex justify-between'>
-                <NavLink to='/'><h1 className='uppercase font-bold text-2xl'>Daily Needs</h1></NavLink>
+                <div className='flex justify-center items-center pb-6 md:pb-0 pl-2 md:pl-0'>
+                    <label htmlFor="dashbord-drawer" className="cursor-pointer lg:hidden"><BiMenu size={26} /></label>
+                    <NavLink to='/'><h1 className='ml-2 text-2xl font-bold uppercase'>Daily Needs</h1></NavLink>
+                </div>
                 <div className={`flex flex-col md:flex-row left-0 pl-4 md:pl-0 bg-gray-700 w-full md:w-auto font-semibold md:static absolute duration-700  ${open ? 'top-14' : 'top-[-490px]'}`}>
                     {
                         navItems.map((item, i) =>
@@ -53,4 +56,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default DashboardNavbar

@@ -5,9 +5,7 @@ import router from './Routes/Routes/Route';
 
 function App() {
   return (
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <RouterProvider router={router} />
   );
 }
 

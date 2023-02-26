@@ -10,6 +10,11 @@ import Cosmetics from "../../Pages/Home/Cosmetics";
 import AllProducts from "../../Pages/Home/AllProducts";
 import SignIn from "../../Pages/SignIn/SignIn";
 import Signup from "../../Pages/SignIn/Signup";
+import DashboardLayout from "../../Layout/DashboardLayout";
+import MyOrder from "../../Pages/Dashboard/MyOrder";
+import Review from "../../Pages/Dashboard/Review";
+import AddProduct from "../../Pages/Dashboard/AddProduct";
+import AllUser from "../../Pages/Dashboard/AllUser";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +32,15 @@ const router = createBrowserRouter([
     },
     { path: "/signin", element: <SignIn /> },
     { path: "/signup", element: <Signup /> },
+    {
+        path: "/dashboard", element: <DashboardLayout />,
+        children: [
+            { path: "/dashboard", element: <MyOrder /> },
+            { path: "/dashboard/review", element: <Review /> },
+            { path: "/dashboard/add-product", element: <AddProduct /> },
+            { path: "/dashboard/all-user", element: <AllUser /> },
+        ]
+    }
 ]);
 
 export default router;

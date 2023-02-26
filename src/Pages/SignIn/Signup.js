@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 import Navbar from '../Shared/Navbar'
 
 function Signup() {
     const { register, handleSubmit } = useForm();
+    const { createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignUp = data => {
-        console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        console.log('Profile Updated');
+                        navigate('/')
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
