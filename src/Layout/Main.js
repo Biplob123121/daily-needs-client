@@ -10,14 +10,18 @@ import { BiShoppingBag } from 'react-icons/bi';
 import Navbar from '../Pages/Shared/Navbar';
 import Footer from '../Pages/Shared/Footer';
 import { CartContext } from '../Context/CartProvider';
+import ModalForCart from '../Pages/Home/ModalForCart';
 
 
 
 function Main() {
 
     const [toggle, setToggle] = useState(false);
-    const { cart } = useContext(CartContext)
+    const { state } = useContext(CartContext)
 
+    const total = state.reduce((total, item) => {
+        return total + item.price * item.quantity;
+    }, 0)
 
     const barItems = [
         { name: 'All', link: '/all-products', icon: category_logo },
@@ -45,16 +49,19 @@ function Main() {
                             </NavLink>)
                         }
                     </div>
-                    <div className='shadow-2xl w-[64px] absolute left-2'>
-                        <div className='bg-gray-500 text-yellow-500 text-center'>
-                            <h3 className='ml-5'><BiShoppingBag size={26} /></h3>
-                            <p>{cart?.length} {cart.length > 1 ? 'Items' : 'Item'}</p>
+                    <label htmlFor="cart-modal" className='cursor-pointer'>
+                        <div className='shadow-2xl w-[64px] absolute left-2'>
+                            <div className='bg-gray-500 text-yellow-500 text-center'>
+                                <h3 className='ml-5'><BiShoppingBag size={26} /></h3>
+                                <p>{state?.length} {state?.length > 1 ? 'Items' : 'Item'}</p>
+                            </div>
+                            <p className='text-center'>Tk. {total}</p>
                         </div>
-                        <p className='text-center'>Tk. 000</p>
-                    </div>
+                    </label>
                 </div>
                 <div className='px-3'>
                     <Outlet />
+                    <ModalForCart />
                 </div>
             </div>
             <Footer />

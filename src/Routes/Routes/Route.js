@@ -8,6 +8,8 @@ import Fashion from "../../Pages/Home/Fashion";
 import Furniture from "../../Pages/Home/Furniture";
 import Cosmetics from "../../Pages/Home/Cosmetics";
 import AllProducts from "../../Pages/Home/AllProducts";
+import SignIn from "../../Pages/SignIn/SignIn";
+import Signup from "../../Pages/SignIn/Signup";
 
 const router = createBrowserRouter([
     {
@@ -20,10 +22,11 @@ const router = createBrowserRouter([
             { path: "/cosmetics", element: <Cosmetics /> },
             { path: "/furniture", element: <Furniture /> },
             { path: "/about", element: <About /> },
+            { path: "/contact", element: <Contact /> },
         ]
     },
-    
-    { path: "/contact", element: <Contact /> },
+    { path: "/signin", element: <SignIn /> },
+    { path: "/signup", element: <Signup /> },
 ]);
 
 export default router;

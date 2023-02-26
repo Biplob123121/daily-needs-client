@@ -1,62 +1,56 @@
 [
-    {
-      "_id": 1,
-      "picture": "https://i.ibb.co/mhs9D8J/rice.jpg",
-      "name": "Rice",
-      "description": "This Liner Piston is very good quality made by pure iron in Bangladesh.",
-      "price": "70",
-      "quantity" : "2000",
-      "minOrder" : "1 Kg",
-      "category" : "food"
-    },
-    {
-      "_id": 2,
-      "picture": "https://i.ibb.co/4MzLxkM/oil.jpg",
-      "name": "Oil",
-      "description": "This Liner Piston is very good quality made by pure iron in Bangladesh.",
-      "price": "195",
-      "quantity" : "2000",
-      "minOrder" : "1 Litre",
-      "category" : "food"
-    },
-    {
-      "_id": 3,
-      "picture": "https://i.ibb.co/n7vk7wj/pulses.webp",
-      "name": "Pulse",
-      "description": "This Liner Piston is very good quality made by pure iron in Bangladesh.",
-      "price": "160",
-      "quantity" : "2000",
-      "minOrder" : "1 Kg",
-      "category" : "food"
-    },
-    {
-      "_id": 4,
-      "picture": "https://i.ibb.co/QmzJfrH/polo-shirt.png",
-      "name": "Polo Shirt",
-      "description": "It is made by Steel. It's longivity is very high. It is a gurrented product.",
-      "price": "599",
-      "quantity" :"2200",
-      "minOrder" : "1 Piece",
-      "category" : "fashion"
-    },
-    {
-      "_id": 5,
-      "picture": "https://i.ibb.co/VLp9xSG/table.png",
-      "name": "Table",
-      "description": "This water pump is the best quality product in the world. It's working power is very high.",
-      "price": "5990",
-      "quantity" :"3500",
-      "minOrder" : "1 Piece",
-      "category" : "furniture"
-    },
-    {
-      "_id": 6,
-      "picture": "https://i.ibb.co/cFrKsfF/chair.png",
-      "name": "Chair",
-      "description": "This water pump is the best quality product in the world. It's working power is very high.",
-      "price": "4590",
-      "quantity" :"500",
-      "minOrder" : "1 Piece",
-      "category" : "furniture"
-    }
-  ]
+  {
+    "_id": 1,
+    "picture": "https://i.ibb.co/mhs9D8J/rice.jpg",
+    "name": "Rice",
+    "description": "This Liner Piston is very good quality made by pure iron in Bangladesh.",
+    "price": "70",
+    "minOrder": "1 Kg",
+    "category": "food"
+  },
+  {
+    "_id": 2,
+    "picture": "https://i.ibb.co/4MzLxkM/oil.jpg",
+    "name": "Oil",
+    "description": "This Liner Piston is very good quality made by pure iron in Bangladesh.",
+    "price": "195",
+    "minOrder": "1 Litre",
+    "category": "food"
+  },
+  {
+    "_id": 3,
+    "picture": "https://i.ibb.co/n7vk7wj/pulses.webp",
+    "name": "Pulse",
+    "description": "This Liner Piston is very good quality made by pure iron in Bangladesh.",
+    "price": "160",
+    "minOrder": "1 Kg",
+    "category": "food"
+  },
+  {
+    "_id": 4,
+    "picture": "https://i.ibb.co/QmzJfrH/polo-shirt.png",
+    "name": "Polo Shirt",
+    "description": "It is made by Steel. It's longivity is very high. It is a gurrented product.",
+    "price": "599",
+    "minOrder": "1 Piece",
+    "category": "fashion"
+  },
+  {
+    "_id": 5,
+    "picture": "https://i.ibb.co/VLp9xSG/table.png",
+    "name": "Table",
+    "description": "This water pump is the best quality product in the world. It's working power is very high.",
+    "price": "5990",
+    "minOrder": "1 Piece",
+    "category": "furniture"
+  },
+  {
+    "_id": 6,
+    "picture": "https://i.ibb.co/cFrKsfF/chair.png",
+    "name": "Chair",
+    "description": "This water pump is the best quality product in the world. It's working power is very high.",
+    "price": "4590",
+    "minOrder": "1 Piece",
+    "category": "furniture"
+  }
+]
