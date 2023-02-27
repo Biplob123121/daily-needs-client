@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 function AddProduct() {
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const imageHostKey = process.env.REACT_APP_imgbb_api_key;
 
   const handleAddProduct = data => {
@@ -38,7 +38,8 @@ function AddProduct() {
             .then(res => res.json())
             .then(data => {
               if (data.acknowledged) {
-                toast.success('Product is added...')
+                toast.success('Product is added...');
+                reset()
               }
             })
         }
@@ -48,7 +49,7 @@ function AddProduct() {
   return (
     <div className='flex justify-center items-center'>
       <div className='w-96 p-6 shadow-2xl'>
-        <h2 className='text-2xl text-center font-semibold'>Add A Product</h2>
+        <h2 className='text-2xl text-center font-semibold'>Add New Product</h2>
         <form onSubmit={handleSubmit(handleAddProduct)}>
           <div className="form-control w-full">
             <label className="label"><span className="label-text">Name</span></label>

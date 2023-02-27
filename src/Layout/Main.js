@@ -34,8 +34,8 @@ function Main() {
     return (
         <>
             <Navbar></Navbar>
-            <div className='flex z-0'>
-                <div className={`${toggle ? 'w-52' : 'w-[72px]'} min-h-screen bg-gray-200 duration-700 text-gray-700 font-semibold px-6 relative`}>
+            <div className='flex'>
+                <div className={`${toggle ? 'w-52' : 'w-[72px]'} min-h-screen bg-gray-200 duration-700 text-gray-700 font-semibold px-6 relative z-0`}>
                     <div onClick={() => setToggle(!toggle)} className=" absolute cursor-pointer top-2 right-2 font-bold">
                         {
                             toggle ? <BsArrowBarLeft size={26} /> : <BsArrowBarRight size={26} />
@@ -59,7 +59,7 @@ function Main() {
                         </div>
                     </label>
                 </div>
-                <div className='px-3'>
+                <div className='w-full'>
                     <Outlet />
                     <ModalForCart />
                 </div>

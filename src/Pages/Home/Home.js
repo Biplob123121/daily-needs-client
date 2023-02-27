@@ -1,9 +1,16 @@
 import React from 'react';
+import AskQuestion from './AskQuestion';
+import Banner from './Banner';
+import Category from './Category';
+import Reviews from './Reviews';
 
 function Home() {
   return (
     <div>
-      <h1>This is Home page</h1>
+      <Banner />
+      <Category />
+      <Reviews />
+      <AskQuestion />
     </div>
   )
 }

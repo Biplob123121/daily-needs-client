@@ -10,12 +10,12 @@ function ModalForCart() {
     }, 0)
 
     return (
-        <div>
+        <div className=''>
             <input type="checkbox" id="cart-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="cart-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <div>
+                    <div className=''>
                         {
                             state?.map(item => <div key={item._id} className='flex items-center justify-center my-6'>
                                 <div className='mr-6 flex'>
@@ -34,7 +34,7 @@ function ModalForCart() {
                                     <p>{item.name}</p>
                                     <span className='text-xs'>{item.minOrder}</span>
                                 </div>
-                                <h4 className='mr-12'>{item.price * item.quantity}</h4>
+                                <h4 className='mr-4 md:mr-12'>{item.price * item.quantity}</h4>
                                 <button onClick={() => dispatch({ type: "REMOVE", payload: item })}>X </button>
                             </div>)
                         }

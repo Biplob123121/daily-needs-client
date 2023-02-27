@@ -24,7 +24,7 @@ function Navbar() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className='py-3 px-6 bg-gray-700 text-gray-100 sticky top-0 z-10'>
+        <nav className='py-3 px-6 bg-my-color text-gray-100 sticky top-0 z-10'>
             <div className='flex justify-between'>
                 <NavLink to='/'><h1 className='uppercase font-bold text-2xl'>Daily Needs</h1></NavLink>
                 <div className={`flex flex-col md:flex-row left-0 pl-4 md:pl-0 bg-gray-700 w-full md:w-auto font-semibold md:static absolute duration-700  ${open ? 'top-14' : 'top-[-490px]'}`}>
