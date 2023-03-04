@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
-import Product from './Product'
+import Product from './Product';
+import Loading from '../../LoadingSpinner/Loading';
 
 function AllProducts() {
     // const [products, setProducts] = useState([])
 
-    const { data: products = [] } = useQuery({
+    const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
             const res = await fetch('http://localhost:4000/api/products');
@@ -13,6 +14,10 @@ function AllProducts() {
             return data;
         }
     })
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
 
     // useEffect(() => {
     //     fetch('products.json')

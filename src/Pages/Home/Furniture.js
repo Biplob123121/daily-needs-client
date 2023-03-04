@@ -1,10 +1,15 @@
 import React from 'react'
 import useProduct from '../../hooks/useProduct'
+import Loading from '../../LoadingSpinner/Loading';
 import Product from './Product';
 
 function Furniture() {
 
-  const { products: furnitures } = useProduct('furniture');
+  const { products: furnitures, isLoading } = useProduct('furniture');
+
+  if(isLoading){
+    return <Loading></Loading>
+  }
 
   return (
     <section className='p-3'>

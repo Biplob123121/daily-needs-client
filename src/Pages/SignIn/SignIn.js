@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import Navbar from '../Shared/Navbar';
 
@@ -8,14 +8,17 @@ function SignIn() {
 
     const { register, handleSubmit } = useForm();
     const { login } = useContext(AuthContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleSignIn = data => {
         console.log(data);
         login(data.email, data.password)
             .then(result => {
                 console.log(result.user)
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.log(error)

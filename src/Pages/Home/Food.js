@@ -1,11 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import useProduct from '../../hooks/useProduct';
+import Loading from '../../LoadingSpinner/Loading';
 import Product from './Product';
 
 function Food() {
 
-  const { products: foods } = useProduct('food');
+  const { products: foods, isLoading } = useProduct('food');
+
+  if(isLoading){
+    return <Loading></Loading>
+  }
 
   return (
     <section className='p-3'>

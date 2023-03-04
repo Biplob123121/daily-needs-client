@@ -15,6 +15,7 @@ import MyOrder from "../../Pages/Dashboard/MyOrder";
 import Review from "../../Pages/Dashboard/Review";
 import AddProduct from "../../Pages/Dashboard/AddProduct";
 import AllUser from "../../Pages/Dashboard/AllUser";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
     { path: "/signin", element: <SignIn /> },
     { path: "/signup", element: <Signup /> },
     {
-        path: "/dashboard", element: <DashboardLayout />,
+        path: "/dashboard", element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
             { path: "/dashboard", element: <MyOrder /> },
             { path: "/dashboard/review", element: <Review /> },
