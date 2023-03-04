@@ -16,6 +16,8 @@ import Review from "../../Pages/Dashboard/Review";
 import AddProduct from "../../Pages/Dashboard/AddProduct";
 import AllUser from "../../Pages/Dashboard/AllUser";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import Payment from "../../Pages/Dashboard/Payment";
 
 const router = createBrowserRouter([
     {
@@ -38,8 +40,9 @@ const router = createBrowserRouter([
         children: [
             { path: "/dashboard", element: <MyOrder /> },
             { path: "/dashboard/review", element: <Review /> },
-            { path: "/dashboard/add-product", element: <AddProduct /> },
-            { path: "/dashboard/all-user", element: <AllUser /> },
+            { path: "/dashboard/payment", element: <Payment /> },
+            { path: "/dashboard/add-product", element: <AdminRoute><AddProduct /> </AdminRoute> },
+            { path: "/dashboard/all-user", element: <AdminRoute><AllUser /> </AdminRoute> },
         ]
     }
 ]);
