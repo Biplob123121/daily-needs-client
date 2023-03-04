@@ -44,7 +44,7 @@ function Main() {
                     <div className='mt-12 mb-28'>
                         {
                             barItems.map((item, i) => <NavLink to={item.link} key={i} className='flex py-2 rounded-lg hover:bg-gray-400'>
-                                <img src={item.icon} alt="logo" />
+                                <img src={item.icon} alt="logo" width={26} height={26}/>
                                 <h3 className='ml-2 overflow-hidden'>{item.name}</h3>
                             </NavLink>)
                         }
