@@ -18,8 +18,7 @@ function Signup() {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        console.log('Profile Updated');
-                        navigate('/')
+                        saveUser(data.name, data.email)
                     })
                     .catch(error => {
                         console.log(error)
@@ -27,6 +26,26 @@ function Signup() {
             })
             .catch(error => {
                 console.log(error);
+            })
+    }
+
+    const saveUser = (name, email) => {
+        const newUser = {
+            name: name,
+            email: email
+        }
+        fetch('http://localhost:4000/api/users', {
+            method: 'Post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    navigate('/')
+                }
             })
     }
 

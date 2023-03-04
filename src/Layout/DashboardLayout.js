@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import DashboardNavbar from '../Pages/Shared/DashboardNavbar'
+import DashboardNavbar from '../Pages/Shared/DashboardNavbar';
+import Footer from '../Pages/Shared/Footer';
 
 function DashboardLayout() {
     return (
@@ -19,9 +20,9 @@ function DashboardLayout() {
                         <li><Link to={'/dashboard/all-user'}>All User</Link></li>
                         <li><Link to={'/dashboard/add-product'}>Add Product</Link></li>
                     </ul>
-
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

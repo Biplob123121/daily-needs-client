@@ -1,18 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
+import useProduct from '../../hooks/useProduct';
 import Product from './Product';
 
 function Food() {
-  const category = "food";
 
-  const { data: foods = [], isLoading } = useQuery({
-    queryKey: ['products'],
-    queryFn: async () => {
-      const res = await fetch(`http://localhost:4000/api/products/category?category=${category}`);
-      const data = await res.json();
-      return data;
-    }
-  })
+  const { products: foods } = useProduct('food');
 
   return (
     <section className='p-3'>
