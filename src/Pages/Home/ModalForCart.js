@@ -1,13 +1,48 @@
 import React, { useContext, useEffect } from 'react'
 import { CartContext } from '../../Context/CartProvider';
+import { AuthContext } from '../../Context/AuthProvider';
+import Loading from '../../LoadingSpinner/Loading'
+import { toast } from 'react-hot-toast';
 
 function ModalForCart() {
 
     const { state, dispatch } = useContext(CartContext)
+    const { user, loading } = useContext(AuthContext)
 
     const total = state.reduce((total, item) => {
         return total + item.price * item.quantity;
     }, 0)
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    const handleOrder = () => {
+
+        if (!user) {
+            return toast.error('Please login before order..')
+        }
+
+        const order = {
+            name: user?.displayName,
+            email: user?.email,
+            products: state,
+            totalPrice: total
+        }
+        fetch('http://localhost:4000/api/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledge) {
+                    toast.success('order completed')
+                }
+            })
+    }
 
     return (
         <div className=''>
@@ -41,7 +76,10 @@ function ModalForCart() {
                     </div>
                     <div className='px-3 pt-6 flex justify-between items-center'>
                         <p className='font-bold text-xl'>Total: {total}</p>
-                        <button className='btn'>Order Now</button>
+                        {
+                            state?.length === 0 ? 'Please select Something..' :
+                                <button onClick={handleOrder} className='btn'>Order Now</button>
+                        }
                     </div>
                 </div>
             </div>
