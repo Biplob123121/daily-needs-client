@@ -3,11 +3,13 @@ import { CartContext } from '../../Context/CartProvider';
 import { AuthContext } from '../../Context/AuthProvider';
 import Loading from '../../LoadingSpinner/Loading'
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function ModalForCart() {
 
-    const { state, dispatch } = useContext(CartContext)
-    const { user, loading } = useContext(AuthContext)
+    const { state, dispatch } = useContext(CartContext);
+    const { user, loading } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const total = state.reduce((total, item) => {
         return total + item.price * item.quantity;
@@ -18,6 +20,12 @@ function ModalForCart() {
     }
 
     const handleOrder = () => {
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+
+        const date = mm + '/' + dd + '/' + yyyy
 
         if (!user) {
             return toast.error('Please login before order..')
@@ -27,7 +35,8 @@ function ModalForCart() {
             name: user?.displayName,
             email: user?.email,
             products: state,
-            totalPrice: total
+            totalPrice: total,
+            date: date
         }
         fetch('http://localhost:4000/api/orders', {
             method: 'POST',
@@ -39,7 +48,7 @@ function ModalForCart() {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledge) {
-                    toast.success('order completed')
+                    navigate('/dashboard')
                 }
             })
     }
@@ -78,7 +87,7 @@ function ModalForCart() {
                         <p className='font-bold text-xl'>Total: {total}</p>
                         {
                             state?.length === 0 ? 'Please select Something..' :
-                                <button onClick={handleOrder} className='btn'>Order Now</button>
+                                <button onClick={handleOrder} className='btn btn-sm'>Order Now</button>
                         }
                     </div>
                 </div>

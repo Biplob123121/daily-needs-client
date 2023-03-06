@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         children: [
             { path: "/dashboard", element: <MyOrder /> },
             { path: "/dashboard/review", element: <Review /> },
-            { path: "/dashboard/payment", element: <Payment /> },
+            { path: "/dashboard/payment/:id", element: <Payment /> },
             { path: "/dashboard/add-product", element: <AdminRoute><AddProduct /> </AdminRoute> },
             { path: "/dashboard/all-user", element: <AdminRoute><AllUser /> </AdminRoute> },
         ]
