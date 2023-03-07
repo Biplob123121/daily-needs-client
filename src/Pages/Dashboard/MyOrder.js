@@ -58,7 +58,9 @@ function MyOrder() {
                                 <td>{order.totalPrice}</td>
                                 <td>
                                     {
-                                        order.paid !== 'paid' && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-primary btn-xs'>Pay Now</button></Link>
+                                        order.paid !== 'paid' ? <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-primary btn-xs'>Pay Now</button></Link>
+                                        :
+                                        <p className='text-success'>PAID</p>
                                     }
                                 </td>
                                 <td>

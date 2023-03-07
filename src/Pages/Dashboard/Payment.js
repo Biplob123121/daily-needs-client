@@ -1,11 +1,18 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Loading from '../../LoadingSpinner/Loading';
+import CheckoutForm from './CheckoutForm';
+
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
 
 function Payment() {
-
+  
   const { id } = useParams();
-  const { data: order = [] } = useQuery({
+  const { data: order = [], isLoading } = useQuery({
     queryKey: ['order', id],
     queryFn: async () => {
       const res = await fetch(`http://localhost:4000/api/orders/${id}`);
@@ -14,8 +21,12 @@ function Payment() {
     }
   })
 
+  if (isLoading) {
+    return <Loading></Loading>
+  }
 
   const products = order[0]?.products;
+
 
   return (
     <div>
@@ -41,8 +52,11 @@ function Payment() {
           <h4 className='font-semibold mt-4'>Total Cost: Tk. {order[0]?.totalPrice}</h4>
           <p className='font-semibold text-center py-3 text-sm'>Shipping Free</p>
         </div>
-        <div>
-          <h3>Card Details</h3>
+        <div className=' shadow-lg p-2 mt-3'>
+          <h3 className='font-bold mb-2'>Card Details</h3>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm order={order[0]} />
+          </Elements>
         </div>
       </div>
     </div>
