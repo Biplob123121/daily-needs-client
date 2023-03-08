@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BsArrowBarLeft, BsArrowBarRight } from 'react-icons/bs';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet} from 'react-router-dom';
 import category_logo from '../Logo/category_logo.png';
 import food_logo from '../Logo/food_logo.png';
 import fashion_logo from '../Logo/fashion_logo.png';
@@ -11,7 +11,6 @@ import Navbar from '../Pages/Shared/Navbar';
 import Footer from '../Pages/Shared/Footer';
 import { CartContext } from '../Context/CartProvider';
 import ModalForCart from '../Pages/Home/ModalForCart';
-import Reviews from '../Pages/Home/Reviews';
 
 
 
@@ -36,7 +35,7 @@ function Main() {
         <>
             <Navbar></Navbar>
             <div className='flex'>
-                <div className={`${toggle ? 'w-52' : 'w-[72px]'} min-h-screen bg-gray-200 duration-700 text-gray-700 font-semibold px-6 relative z-0`}>
+                <div className={`${toggle ? 'w-52' : 'w-[68px]'} min-h-screen bg-gray-200 duration-700 text-gray-700 font-semibold px-6 relative z-0`}>
                     <div onClick={() => setToggle(!toggle)} className=" absolute cursor-pointer top-2 right-2 font-bold">
                         {
                             toggle ? <BsArrowBarLeft size={26} /> : <BsArrowBarRight size={26} />
@@ -45,13 +44,13 @@ function Main() {
                     <div className='mt-12 mb-28'>
                         {
                             barItems.map((item, i) => <NavLink to={item.link} key={i} className='flex py-2 rounded-lg hover:bg-gray-400'>
-                                <img src={item.icon} alt="logo" width={26} height={26}/>
+                                <img src={item.icon} alt="logo" width={22} height={22} />
                                 <h3 className='ml-2 overflow-hidden'>{item.name}</h3>
                             </NavLink>)
                         }
                     </div>
                     <label htmlFor="cart-modal" className='cursor-pointer'>
-                        <div className='shadow-2xl w-[64px] absolute left-2'>
+                        <div className='shadow-2xl w-[64px] absolute left-1'>
                             <div className='bg-gray-500 text-yellow-500 text-center'>
                                 <h3 className='ml-5'><BiShoppingBag size={26} /></h3>
                                 <p>{state?.length} {state?.length > 1 ? 'Items' : 'Item'}</p>
@@ -65,7 +64,6 @@ function Main() {
                     <ModalForCart />
                 </div>
             </div>
-            <Reviews />
             <Footer />
         </>
     )

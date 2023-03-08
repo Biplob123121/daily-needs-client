@@ -18,6 +18,8 @@ import AllUser from "../../Pages/Dashboard/AllUser";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Payment from "../../Pages/Dashboard/Payment";
+import Search from "../../Pages/Home/Search";
+import Reviews from "../../Pages/Home/Reviews";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
             { path: "/furniture", element: <Furniture /> },
             { path: "/about", element: <About /> },
             { path: "/contact", element: <Contact /> },
+            { path: "/search", element: <Search /> },
         ]
     },
     { path: "/signin", element: <SignIn /> },

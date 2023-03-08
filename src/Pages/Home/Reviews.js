@@ -1,5 +1,4 @@
-import React from 'react'
-import fashion from '../../Logo/fashion_logo.png';
+import React, { useState } from 'react'
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -21,16 +20,16 @@ function Reviews() {
     return (
         <section className='bg-gray-200 py-6'>
             <h1 className='text-2xl font-bold text-gray-800 mb-4 text-center'>Our Client's Feedback:</h1>
-            <div className="max-w-screen-lg mx-auto">
+            <div className="max-w-[200px] md:w-full md:max-w-screen-lg mx-auto">
                 <Swiper
-                    className="my-4"
-                    spaceBetween={0}
-                    slidesPerView={1}
+                    // className="my-4"
+                    // spaceBetween={0}
+                    // slidesPerView={1}
                     autoplay={{ delay: 3000 }}
-                    navigation
-                    pagination={{ clickable: true }}
+                    // navigation
+                    // pagination={{ clickable: true }}
                     breakpoints={{
-                        640: {
+                        580: {
                             slidesPerView: 1,
                             spaceBetween: 0,
                         },
@@ -45,9 +44,9 @@ function Reviews() {
                     }}
                 >
                     {
-                        reviews?.map(review => <SwiperSlide key={review._id}>
-                            <div className="bg-gray-100 h-64 flex justify-center items-center rounded-xl px-4">
-                                <div className='p-4'>
+                        reviews?.map(review => <SwiperSlide key={review._id} className="">
+                            <div className="bg-gray-100 w-full h-64 flex justify-center items-center rounded-xl">
+                                <div className='p-2'>
                                     <div className='flex flex-col justify-center items-center mb-3'>
                                         <div className="avatar mb-2">
                                             <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
