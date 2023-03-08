@@ -11,6 +11,7 @@ import Navbar from '../Pages/Shared/Navbar';
 import Footer from '../Pages/Shared/Footer';
 import { CartContext } from '../Context/CartProvider';
 import ModalForCart from '../Pages/Home/ModalForCart';
+import Reviews from '../Pages/Home/Reviews';
 
 
 
@@ -64,6 +65,7 @@ function Main() {
                     <ModalForCart />
                 </div>
             </div>
+            <Reviews />
             <Footer />
         </>
     )
