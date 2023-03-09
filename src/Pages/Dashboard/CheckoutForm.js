@@ -14,7 +14,7 @@ function CheckoutForm({ order }) {
     const { totalPrice, name, email } = order;
 
     useEffect(() => {
-        fetch("http://localhost:4000/create-payment-intent", {
+        fetch("https://daily-needs-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -75,7 +75,7 @@ function CheckoutForm({ order }) {
                 price: totalPrice,
                 name: name
             }
-            fetch('http://localhost:4000/api/payments', {
+            fetch('https://daily-needs-server.vercel.app/api/payments', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -94,7 +94,7 @@ function CheckoutForm({ order }) {
     }
 
     const updateOrder = id => {
-        fetch(`http://localhost:4000/api/orders/${id}`, {
+        fetch(`https://daily-needs-server.vercel.app/api/orders/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

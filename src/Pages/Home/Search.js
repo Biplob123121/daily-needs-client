@@ -10,7 +10,7 @@ function Search() {
   const { data: products = [], isLoading } = useQuery({
     queryKey: [searchTerm],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:4000/api/products/search?searchTerm=${searchTerm}`);
+      const res = await fetch(`https://daily-needs-server.vercel.app/api/products/search?searchTerm=${searchTerm}`);
       const data = await res.json();
       return data;
     }

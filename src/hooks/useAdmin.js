@@ -6,7 +6,7 @@ function useAdmin(email) {
     const [isAdminLoading, setIsAdminLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`http://localhost:4000/api/users/admin/${email}`)
+        fetch(`https://daily-needs-server.vercel.app/api/users/admin/${email}`)
             .then(res => res.json())
             .then(data => {
                 setIsAdmin(data.isAdmin)

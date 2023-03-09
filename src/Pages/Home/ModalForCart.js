@@ -38,7 +38,7 @@ function ModalForCart() {
             totalPrice: total,
             date: date
         }
-        fetch('http://localhost:4000/api/orders', {
+        fetch('https://daily-needs-server.vercel.app/api/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

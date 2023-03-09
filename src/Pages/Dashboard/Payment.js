@@ -15,7 +15,7 @@ function Payment() {
   const { data: order = [], isLoading } = useQuery({
     queryKey: ['order', id],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:4000/api/orders/${id}`);
+      const res = await fetch(`https://daily-needs-server.vercel.app/api/orders/${id}`);
       const data = res.json();
       return data;
     }

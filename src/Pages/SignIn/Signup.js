@@ -34,7 +34,7 @@ function Signup() {
             name: name,
             email: email
         }
-        fetch('http://localhost:4000/api/users', {
+        fetch('https://daily-needs-server.vercel.app/api/users', {
             method: 'Post',
             headers: {
                 'content-type': 'application/json'

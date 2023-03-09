@@ -7,14 +7,14 @@ function AllUser() {
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:4000/api/users');
+      const res = await fetch('https://daily-needs-server.vercel.app/api/users');
       const data = await res.json();
       return data;
     }
   })
 
   const handleMakeAdmin = id => {
-    fetch(`http://localhost:4000/api/users/${id}`, {
+    fetch(`https://daily-needs-server.vercel.app/api/users/${id}`, {
       method: 'PATCH',
     })
       .then(res => res.json())

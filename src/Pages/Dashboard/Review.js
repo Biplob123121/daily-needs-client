@@ -12,7 +12,7 @@ function Review() {
       email: data.email,
       review: data.review
     }
-    fetch('http://localhost:4000/api/reviews',{
+    fetch('https://daily-needs-server.vercel.app/api/reviews',{
       method: 'POST',
       headers:{
         'content-type':'application/json'

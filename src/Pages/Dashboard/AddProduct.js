@@ -28,7 +28,7 @@ function AddProduct() {
             description: data.description
           }
 
-          fetch('http://localhost:4000/api/products', {
+          fetch('https://daily-needs-server.vercel.app/api/products', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'

@@ -6,7 +6,7 @@ const useProduct = category => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`http://localhost:4000/api/products/category?category=${category}`)
+        fetch(`https://daily-needs-server.vercel.app/api/products/category?category=${category}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

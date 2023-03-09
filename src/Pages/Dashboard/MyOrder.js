@@ -11,7 +11,7 @@ function MyOrder() {
     const { data: orders = [], refetch } = useQuery({
         queryKey: ['orders', user.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/api/orders/my-order?email=${user?.email}`);
+            const res = await fetch(`https://daily-needs-server.vercel.app/api/orders/my-order?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -22,7 +22,7 @@ function MyOrder() {
     }
 
     const handleDelete = id => {
-        fetch(`http://localhost:4000/api/orders/${id}`, {
+        fetch(`https://daily-needs-server.vercel.app/api/orders/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
